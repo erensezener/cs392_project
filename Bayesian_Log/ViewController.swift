@@ -50,10 +50,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destinationVC = segue.destinationViewController as AddPredictionController
+        
         if let identifier = segue.identifier{
             if identifier == "addPrediction" {
+                let destinationVC = segue.destinationViewController as AddPredictionController
                 destinationVC.predictions = self.predictions
+            }
+            else if identifier == "showStatistics" {
+//                let destinationVC = segue.destinationViewController as StatisticsViewController
+                
             }
         }
     }
@@ -95,7 +100,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         judgeRowAction.backgroundColor = UIColor(red: 0.598, green: 0.251, blue: 0.3922, alpha: 1.0);
         
         var updateRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Update", handler:{action, indexpath in
-            println("MORE•ACTION");
+            self.performSegueWithIdentifier("updateSegue", sender: self)
         });
         updateRowAction.backgroundColor = UIColor(red: 0.298, green: 0.851, blue: 0.3922, alpha: 1.0);
         

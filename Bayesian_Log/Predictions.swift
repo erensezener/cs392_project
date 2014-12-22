@@ -10,9 +10,19 @@ import Foundation
 
 class Predictions{
     var predictions = [Prediction]()
+    var completedPredictions = [Prediction]()
     
     func addPrediction(title: String, confidence: String){
         predictions.append(Prediction(title: title, confidence: confidence))
+    }
+    
+    func removePrediction(index: Int){
+        predictions.removeAtIndex(index)
+    }
+    
+    func completePrediction(index: Int){
+        let p = predictions.removeAtIndex(index)
+        completedPredictions.append(p)
     }
     
     func getNumberOfPredictions() -> Int{

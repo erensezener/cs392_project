@@ -29,8 +29,20 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ruB-fd-Yw6">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="flexibleSpace" id="J97-H2-nii"/>
+                                    <barButtonItem title="See Statistics" id="rWp-K0-QBT">
+                                        <connections>
+                                            <segue destination="Mxy-jr-QNo" kind="show" identifier="showStatistics" id="uFa-yd-EVW"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="uNw-Nk-K73"/>
+                                </items>
+                            </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1mt-cs-lFX">
-                                <rect key="frame" x="0.0" y="64" width="600" height="548"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PredictionCell" textLabel="kVX-fT-iXY" detailTextLabel="UcW-HS-HWl" style="IBUITableViewCellStyleValue1" id="Vex-as-lR3">
@@ -53,6 +65,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="uXQ-AQ-0qE" kind="show" identifier="updateSegue" id="zIP-d5-8pt"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -64,13 +79,17 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1mt-cs-lFX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="8IC-Cu-gUb"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="1mt-cs-lFX" secondAttribute="bottom" constant="-12" id="A70-sq-d48"/>
+                            <constraint firstItem="ruB-fd-Yw6" firstAttribute="top" secondItem="1mt-cs-lFX" secondAttribute="bottom" id="Db8-m0-yL3"/>
                             <constraint firstItem="fcG-Od-aHr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="HUd-WE-b09"/>
+                            <constraint firstItem="ruB-fd-Yw6" firstAttribute="top" secondItem="1mt-cs-lFX" secondAttribute="bottom" id="MO8-zN-FhM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1mt-cs-lFX" secondAttribute="trailing" constant="-16" id="Mgs-21-yiY"/>
                             <constraint firstItem="1mt-cs-lFX" firstAttribute="top" secondItem="fcG-Od-aHr" secondAttribute="bottom" id="O2c-dE-pN5"/>
+                            <constraint firstItem="ruB-fd-Yw6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="O9X-7o-d14"/>
                             <constraint firstItem="fcG-Od-aHr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="SFj-fv-aB3"/>
                             <constraint firstItem="1mt-cs-lFX" firstAttribute="top" secondItem="fcG-Od-aHr" secondAttribute="bottom" id="VMC-rn-On3"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ruB-fd-Yw6" secondAttribute="bottom" id="Xow-C7-wGy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fcG-Od-aHr" secondAttribute="trailing" constant="-16" id="czB-ZQ-zbY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ruB-fd-Yw6" secondAttribute="trailing" constant="-16" id="hBh-cd-oVn"/>
                             <constraint firstItem="1mt-cs-lFX" firstAttribute="top" secondItem="fcG-Od-aHr" secondAttribute="bottom" id="hUg-vF-2SS"/>
                         </constraints>
                     </view>
@@ -80,6 +99,68 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Statistics View Controller-->
+        <scene sceneID="SNb-eg-jGh">
+            <objects>
+                <viewController id="Mxy-jr-QNo" customClass="StatisticsViewController" customModule="Bayesian_Log" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ebv-VZ-DsI"/>
+                        <viewControllerLayoutGuide type="bottom" id="3zg-aH-wom"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oSB-qP-69y">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Likelihood:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qg-X6-2OQ">
+                                <rect key="frame" x="154" y="28" width="190" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Normalized Likelihood:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLc-40-drH">
+                                <rect key="frame" x="154" y="57" width="190" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Average confidence:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPh-id-MHO">
+                                <rect key="frame" x="154" y="86" width="190" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Average confidence:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5YS-IQ-VfG">
+                                <rect key="frame" x="154" y="115" width="190" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MVP-bx-SJU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="459" y="1328"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="rFn-om-asI">
+            <objects>
+                <viewController id="uXQ-AQ-0qE" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kdE-AS-xTe"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rmu-9l-tOA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f8Y-Vx-lWg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="loN-Ew-Edm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1230" y="-268"/>
         </scene>
         <!--Add Prediction Controller-->
         <scene sceneID="J7J-0V-cfT">
@@ -195,7 +276,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3n4-By-51l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1479" y="317"/>
+            <point key="canvasLocation" x="1485" y="541"/>
         </scene>
     </scenes>
 </document>

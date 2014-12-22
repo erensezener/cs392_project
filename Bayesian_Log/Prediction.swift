@@ -13,6 +13,9 @@ class Prediction{
     var addDate : NSDate?
     var resolutionDate: NSDate?
     var confidence: String?
+    var isCompleted: Bool?
+    var statementIsTrue: Bool?
+    var probabilityUpdates = [String]()
     
     init(title: String, confidence: String){
         self.title = title
@@ -24,6 +27,34 @@ class Prediction{
         self.addDate = NSDate()
         println(self.addDate)
         self.confidence = confidence
+    }
+    
+    func judgePrediction(statementIsTrue : Bool){
+        self.isCompleted! = true
+        self.statementIsTrue = statementIsTrue
+    }
+    
+    func getTruthValue() -> Bool{
+        return self.statementIsTrue!
+    }
+    
+    func doBayesianUpdate(P_HString: String, P_E_Given_HString: String, P_E_Given_HnotString: String){
+        let P_H = P_HString.toInt()
+        let P_E_Given_H = P_E_Given_HString.toInt()
+        let P_E_Given_Hnot = P_E_Given_HnotString.toInt()
+        let posterior = P_H! * P_E_Given_H! / (P_H! * P_E_Given_H! + (100 - P_H!)*P_E_Given_Hnot!)
+        let posteriorNSNumber = posterior as NSNumber
+        let posteriorString = posteriorNSNumber.stringValue
+        
+        println("Posterior is " + posteriorString)
+        probabilityUpdates.append(confidence!)
+        
+        self.confidence = posteriorString
+    }
+    
+    func doRegularUpdate(newConfidence :String){
+        probabilityUpdates.append(confidence!)
+        confidence = newConfidence
     }
     
     func getConfidenceString() -> String{
