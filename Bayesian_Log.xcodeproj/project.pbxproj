@@ -13,6 +13,10 @@
 		9198DC471A47121100E1FCDC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9198DC461A47121100E1FCDC /* Images.xcassets */; };
 		9198DC4A1A47121100E1FCDC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9198DC481A47121100E1FCDC /* LaunchScreen.xib */; };
 		9198DC561A47121100E1FCDC /* Bayesian_LogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9198DC551A47121100E1FCDC /* Bayesian_LogTests.swift */; };
+		9198DC601A47E7CB00E1FCDC /* TestPredictions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9198DC5F1A47E7CB00E1FCDC /* TestPredictions.swift */; };
+		9198DC621A47E80100E1FCDC /* Predictions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9198DC611A47E80100E1FCDC /* Predictions.swift */; };
+		9198DC641A47E89A00E1FCDC /* Prediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9198DC631A47E89A00E1FCDC /* Prediction.swift */; };
+		9198DC661A4801D100E1FCDC /* AddPredictionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9198DC651A4801D100E1FCDC /* AddPredictionController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,10 @@
 		9198DC4F1A47121100E1FCDC /* Bayesian_LogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Bayesian_LogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9198DC541A47121100E1FCDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9198DC551A47121100E1FCDC /* Bayesian_LogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bayesian_LogTests.swift; sourceTree = "<group>"; };
+		9198DC5F1A47E7CB00E1FCDC /* TestPredictions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPredictions.swift; sourceTree = "<group>"; };
+		9198DC611A47E80100E1FCDC /* Predictions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Predictions.swift; sourceTree = "<group>"; };
+		9198DC631A47E89A00E1FCDC /* Prediction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prediction.swift; sourceTree = "<group>"; };
+		9198DC651A4801D100E1FCDC /* AddPredictionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPredictionController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,12 +85,16 @@
 		9198DC3C1A47121100E1FCDC /* Bayesian_Log */ = {
 			isa = PBXGroup;
 			children = (
-				9198DC3F1A47121100E1FCDC /* AppDelegate.swift */,
 				9198DC411A47121100E1FCDC /* ViewController.swift */,
+				9198DC651A4801D100E1FCDC /* AddPredictionController.swift */,
+				9198DC3F1A47121100E1FCDC /* AppDelegate.swift */,
+				9198DC611A47E80100E1FCDC /* Predictions.swift */,
+				9198DC631A47E89A00E1FCDC /* Prediction.swift */,
 				9198DC431A47121100E1FCDC /* Main.storyboard */,
 				9198DC461A47121100E1FCDC /* Images.xcassets */,
 				9198DC481A47121100E1FCDC /* LaunchScreen.xib */,
 				9198DC3D1A47121100E1FCDC /* Supporting Files */,
+				9198DC5F1A47E7CB00E1FCDC /* TestPredictions.swift */,
 			);
 			path = Bayesian_Log;
 			sourceTree = "<group>";
@@ -212,7 +224,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9198DC621A47E80100E1FCDC /* Predictions.swift in Sources */,
 				9198DC421A47121100E1FCDC /* ViewController.swift in Sources */,
+				9198DC601A47E7CB00E1FCDC /* TestPredictions.swift in Sources */,
+				9198DC641A47E89A00E1FCDC /* Prediction.swift in Sources */,
+				9198DC661A4801D100E1FCDC /* AddPredictionController.swift in Sources */,
 				9198DC401A47121100E1FCDC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,6 +423,7 @@
 				9198DC5B1A47121100E1FCDC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9198DC5C1A47121100E1FCDC /* Build configuration list for PBXNativeTarget "Bayesian_LogTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +432,7 @@
 				9198DC5E1A47121100E1FCDC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
