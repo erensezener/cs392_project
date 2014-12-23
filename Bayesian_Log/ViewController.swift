@@ -7,6 +7,7 @@
 //
 
 //TODO hold statistics
+//TODO handle long titles
 
 import UIKit
 
@@ -14,6 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     let predictions = TestPredictions()
 //    let predictions = Predictions()
+    var indexToUpdate:Int?
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -58,7 +60,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             else if identifier == "showStatistics" {
 //                let destinationVC = segue.destinationViewController as StatisticsViewController
-                
+            }
+            else if identifier == "updateSegue" {
+                let destinationVC = segue.destinationViewController as UpdateViewController
+                println(self.indexToUpdate!)
+                destinationVC.priorProbability = predictions.getConfidenceAtIndex(self.indexToUpdate!)
             }
         }
     }
@@ -100,6 +106,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         judgeRowAction.backgroundColor = UIColor(red: 0.598, green: 0.251, blue: 0.3922, alpha: 1.0);
         
         var updateRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Update", handler:{action, indexpath in
+            self.indexToUpdate = indexPath.item //TODO fix if clicked on the cell
             self.performSegueWithIdentifier("updateSegue", sender: self)
         });
         updateRowAction.backgroundColor = UIColor(red: 0.298, green: 0.851, blue: 0.3922, alpha: 1.0);

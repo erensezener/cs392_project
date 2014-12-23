@@ -17,6 +17,11 @@ class AddPredictionController: UIViewController, UIPickerViewDataSource, UIPicke
     @IBOutlet weak var titleFormField: UITextField!
     @IBOutlet weak var confidenceFormField: UITextField!
     
+    
+    @IBAction func cancelButtonPressed(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     @IBAction func doneButtonPressed(sender: AnyObject) {
         println("done button presssed")
         predictions?.addPrediction(titleFormField.text, confidence: confidenceFormField.text)

@@ -32,4 +32,8 @@ class Predictions{
     func getPredictionAtIndex(index: Int) -> Prediction{
         return predictions[index]
     }
+    
+    func getConfidenceAtIndex(index: Int) -> String{
+        return predictions[index].getConfidenceString()
+    }
 }

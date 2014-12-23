@@ -12,6 +12,7 @@ class TestPredictions : Predictions{
     func populatePredictions(){
         self.addPrediction("I will be admitted to USC", confidence: "50")
         self.addPrediction("TRY/USD will reach 2.40", confidence: "70")
+        self.addPrediction("This will be published in App Store", confidence: "40")
     }
     
     
