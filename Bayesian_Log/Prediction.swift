@@ -39,22 +39,29 @@ class Prediction{
     }
     
     func doBayesianUpdate(P_HString: String, P_E_Given_HString: String, P_E_Given_HnotString: String){
+        
+        self.confidence = self.getPosterior(P_HString, P_E_Given_HString:P_E_Given_HString, P_E_Given_HnotString: P_E_Given_HnotString)
+        probabilityUpdates.append(confidence!)
+
+    }
+    
+    func getPosterior(P_HString: String, P_E_Given_HString: String, P_E_Given_HnotString: String) -> String{
         let P_H = P_HString.toInt()
         let P_E_Given_H = P_E_Given_HString.toInt()
         let P_E_Given_Hnot = P_E_Given_HnotString.toInt()
-        let posterior = P_H! * P_E_Given_H! / (P_H! * P_E_Given_H! + (100 - P_H!)*P_E_Given_Hnot!)
+        let posterior = P_H! * P_E_Given_H! * 100 / (P_H! * P_E_Given_H! + (100 - P_H!)*P_E_Given_Hnot!)
         let posteriorNSNumber = posterior as NSNumber
         let posteriorString = posteriorNSNumber.stringValue
         
         println("Posterior is " + posteriorString)
-        probabilityUpdates.append(confidence!)
         
-        self.confidence = posteriorString
+        return posteriorString
     }
     
     func doRegularUpdate(newConfidence :String){
+        println(newConfidence)
         probabilityUpdates.append(confidence!)
-        confidence = newConfidence
+        self.confidence = newConfidence
     }
     
     func getConfidenceString() -> String{

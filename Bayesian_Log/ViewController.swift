@@ -41,8 +41,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.tableView.reloadData()
         
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:",name:"load", object: nil)
 
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func loadList(notification: NSNotification){
+        //load data here
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,7 +70,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             else if identifier == "updateSegue" {
                 let destinationVC = segue.destinationViewController as UpdateViewController
                 println(self.indexToUpdate!)
-                destinationVC.priorProbability = predictions.getConfidenceAtIndex(self.indexToUpdate!)
+                destinationVC.prediction = predictions.getPredictionAtIndex(self.indexToUpdate!)
             }
         }
     }
@@ -108,6 +114,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         var updateRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Update", handler:{action, indexpath in
             self.indexToUpdate = indexPath.item //TODO fix if clicked on the cell
             self.performSegueWithIdentifier("updateSegue", sender: self)
+            self.tableView.reloadData()
         });
         updateRowAction.backgroundColor = UIColor(red: 0.298, green: 0.851, blue: 0.3922, alpha: 1.0);
         

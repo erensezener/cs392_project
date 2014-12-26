@@ -76,7 +76,6 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1mt-cs-lFX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="8IC-Cu-gUb"/>
                             <constraint firstItem="ruB-fd-Yw6" firstAttribute="top" secondItem="1mt-cs-lFX" secondAttribute="bottom" id="Db8-m0-yL3"/>
@@ -382,18 +381,27 @@
                                 <state key="normal" title="Calculate">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="calculateButtonPressed:" destination="uXQ-AQ-0qE" eventType="touchUpInside" id="qrK-TH-goL"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thM-Yb-YhW">
                                 <rect key="frame" x="319" y="266" width="54" height="30"/>
                                 <state key="normal" title="Commit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="commitButtonPressed:" destination="uXQ-AQ-0qE" eventType="touchUpInside" id="iFP-gJ-NHV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUO-ic-4w0">
                                 <rect key="frame" x="288" y="385" width="54" height="30"/>
                                 <state key="normal" title="Commit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="regularCommitButtonPressed:" destination="uXQ-AQ-0qE" eventType="touchUpInside" id="WDL-KP-r3Y"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Confidence" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73B-jA-gIJ">
                                 <rect key="frame" x="158" y="350" width="128" height="21"/>
@@ -454,7 +462,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="P_E_given_H" destination="eaG-SK-X9i" id="AUj-CK-E72"/>
+                        <outlet property="P_E_given_Hnot" destination="340-i6-zOt" id="GwI-gb-c4h"/>
+                        <outlet property="P_H" destination="QA7-jS-Axb" id="cjs-Lg-al8"/>
+                        <outlet property="P_H_given_E" destination="0kD-EN-DoX" id="XIe-ZC-N1g"/>
                         <outlet property="confidenceLabel" destination="9sQ-5p-8es" id="2Be-vm-rs6"/>
+                        <outlet property="newConfidence" destination="3bh-gi-g66" id="wAY-gS-a3v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="loN-Ew-Edm" userLabel="First Responder" sceneMemberID="firstResponder"/>
