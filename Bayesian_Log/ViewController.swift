@@ -10,12 +10,23 @@
 //TODO handle long titles
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     let predictions = TestPredictions()
 //    let predictions = Predictions()
     var indexToUpdate:Int?
+    
+    lazy var managedObjectContext : NSManagedObjectContext? = {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        if let managedObjectContext = appDelegate.managedObjectContext {
+            return managedObjectContext
+        }
+        else {
+            return nil
+        }
+    }()
     
     @IBOutlet weak var tableView: UITableView!
     

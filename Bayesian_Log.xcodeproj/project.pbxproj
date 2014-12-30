@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9148F1AF1A52D5EB003B8CBC /* Bayesian_Log_DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9148F1AD1A52D5EB003B8CBC /* Bayesian_Log_DataModel.xcdatamodeld */; };
 		915B51591A48871E0088C4A6 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B51581A48871E0088C4A6 /* StatisticsViewController.swift */; };
 		915B515B1A48A1A90088C4A6 /* CompletedPrediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B515A1A48A1A90088C4A6 /* CompletedPrediction.swift */; };
 		915B515D1A48B6AD0088C4A6 /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B515C1A48B6AD0088C4A6 /* UpdateViewController.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9148F1AE1A52D5EB003B8CBC /* Bayesian_Log_DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bayesian_Log_DataModel.xcdatamodel; sourceTree = "<group>"; };
 		915B51581A48871E0088C4A6 /* StatisticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		915B515A1A48A1A90088C4A6 /* CompletedPrediction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedPrediction.swift; sourceTree = "<group>"; };
 		915B515C1A48B6AD0088C4A6 /* UpdateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				9198DC3D1A47121100E1FCDC /* Supporting Files */,
 				9198DC5F1A47E7CB00E1FCDC /* TestPredictions.swift */,
 				9198DC3F1A47121100E1FCDC /* AppDelegate.swift */,
+				9148F1AD1A52D5EB003B8CBC /* Bayesian_Log_DataModel.xcdatamodeld */,
 			);
 			path = Bayesian_Log;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				9198DC641A47E89A00E1FCDC /* Prediction.swift in Sources */,
 				9198DC661A4801D100E1FCDC /* AddPredictionController.swift in Sources */,
 				9198DC401A47121100E1FCDC /* AppDelegate.swift in Sources */,
+				9148F1AF1A52D5EB003B8CBC /* Bayesian_Log_DataModel.xcdatamodeld in Sources */,
 				915B51591A48871E0088C4A6 /* StatisticsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,6 +451,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9148F1AD1A52D5EB003B8CBC /* Bayesian_Log_DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9148F1AE1A52D5EB003B8CBC /* Bayesian_Log_DataModel.xcdatamodel */,
+			);
+			currentVersion = 9148F1AE1A52D5EB003B8CBC /* Bayesian_Log_DataModel.xcdatamodel */;
+			path = Bayesian_Log_DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9198DC321A47121100E1FCDC /* Project object */;
 }

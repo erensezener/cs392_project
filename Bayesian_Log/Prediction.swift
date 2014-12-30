@@ -7,41 +7,39 @@
 //
 
 import Foundation
+import CoreData
 
-class Prediction{
-    var title: String?
-    var addDate : NSDate?
-    var resolutionDate: NSDate?
-    var confidence: String?
-    var isCompleted: Bool?
-    var statementIsTrue: Bool?
-    var probabilityUpdates = [String]()
+class Prediction: NSManagedObject{
+    @NSManaged var title: String
+    @NSManaged var addDate : NSDate
+    @NSManaged var resolutionDate: NSDate
+    @NSManaged var confidence: String
+    @NSManaged var isCompleted: Bool
+    @NSManaged var statementIsTrue: Bool
+//    @NSManaged var probabilityUpdates = [String]()
     
-    init(title: String, confidence: String){
-        self.title = title
-        self.confidence = confidence
+    class func createInManagedObjectContext(moc: NSManagedObjectContext, title: String, confidence: String) -> Prediction {
+        let newItem = NSEntityDescription.insertNewObjectForEntityForName("Prediction", inManagedObjectContext: moc) as Prediction
+        newItem.title = title
+        newItem.confidence = confidence
+        newItem.addDate = NSDate()
+        return newItem
     }
     
-    init(title: String, resolutionDate: NSDate, confidence: String){
-        self.title = title
-        self.addDate = NSDate()
-        println(self.addDate)
-        self.confidence = confidence
-    }
-    
+
     func judgePrediction(statementIsTrue : Bool){
-        self.isCompleted! = true
+        self.isCompleted = true
         self.statementIsTrue = statementIsTrue
     }
     
     func getTruthValue() -> Bool{
-        return self.statementIsTrue!
+        return self.statementIsTrue
     }
     
     func doBayesianUpdate(P_HString: String, P_E_Given_HString: String, P_E_Given_HnotString: String){
         
         self.confidence = self.getPosterior(P_HString, P_E_Given_HString:P_E_Given_HString, P_E_Given_HnotString: P_E_Given_HnotString)
-        probabilityUpdates.append(confidence!)
+//        probabilityUpdates.append(self.confidence)
 
     }
     
@@ -60,14 +58,14 @@ class Prediction{
     
     func doRegularUpdate(newConfidence :String){
         println(newConfidence)
-        probabilityUpdates.append(confidence!)
+//        probabilityUpdates.append(confidence!)
         self.confidence = newConfidence
     }
     
     func getConfidenceString() -> String{
 //        let confNSNumber = self.confidence! as NSNumber
 //        return confNSNumber.stringValue + "%"
-        return confidence!
+        return confidence
     }
 //    
 //    init(title: String, resolutionDate: NSDate, resolutionDate: NSDate, confidence: Int){
