@@ -12,10 +12,6 @@ import UIKit
 class StatisticsViewController: UIViewController{
     
     
-    @IBAction func cancelButtonPresed(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
     @IBAction func doneButtonPressed(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }

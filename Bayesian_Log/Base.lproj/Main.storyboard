@@ -32,13 +32,25 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ruB-fd-Yw6">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem systemItem="flexibleSpace" id="J97-H2-nii"/>
-                                    <barButtonItem title="See Statistics" id="rWp-K0-QBT">
+                                    <barButtonItem title="Statistics" id="rWp-K0-QBT">
                                         <connections>
                                             <segue destination="Mxy-jr-QNo" kind="show" identifier="showStatistics" id="uFa-yd-EVW"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="J97-H2-nii"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="uNw-Nk-K73"/>
+                                    <barButtonItem style="plain" id="t3x-Es-OGx">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qyk-1s-7ku">
+                                            <rect key="frame" x="538" y="7" width="49" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="History">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                        <connections>
+                                            <segue destination="bia-e9-vDw" kind="show" id="b2e-Me-5dl"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1mt-cs-lFX">
@@ -111,35 +123,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CN8-9d-0dp">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="Statistics" id="mfT-Va-ydW">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="EJx-IC-riQ">
-                                            <connections>
-                                                <action selector="cancelButtonPresed:" destination="Mxy-jr-QNo" id="MJE-rI-UCi"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="emh-El-bSu">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QrR-hJ-ihg">
-                                                <rect key="frame" x="277" y="412" width="46" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="lzi-1U-vvP"/>
-                                                    <constraint firstAttribute="width" constant="46" id="ziX-ZV-TCk"/>
-                                                </constraints>
-                                                <state key="normal" title="Done"/>
-                                                <connections>
-                                                    <action selector="doneButtonPressed:" destination="5DI-tf-jgb" eventType="touchUpInside" id="dUt-p2-zV8"/>
-                                                </connections>
-                                            </button>
-                                            <connections>
-                                                <action selector="doneButtonPressed:" destination="Mxy-jr-QNo" id="qG1-HF-W5b"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Likelihood:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qg-X6-2OQ">
                                 <rect key="frame" x="176" y="83" width="190" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -164,13 +147,76 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tn8-ht-Nbn">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Statistics" id="3ay-Nv-ogu">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Tot-xK-w8v">
+                                            <connections>
+                                                <action selector="doneButtonPressed:" destination="Mxy-jr-QNo" id="UXh-Vu-d6g"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Tn8-ht-Nbn" firstAttribute="top" secondItem="ebv-VZ-DsI" secondAttribute="bottom" id="GSC-pP-Eel"/>
+                            <constraint firstItem="Tn8-ht-Nbn" firstAttribute="leading" secondItem="oSB-qP-69y" secondAttribute="leadingMargin" constant="-16" id="UEG-7e-D44"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Tn8-ht-Nbn" secondAttribute="trailing" constant="-16" id="zBe-gh-2Zh"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MVP-bx-SJU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="459" y="1328"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="qR1-XE-Hd9">
+            <objects>
+                <viewController id="bia-e9-vDw" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rdE-oD-K2A"/>
+                        <viewControllerLayoutGuide type="bottom" id="GUq-jn-UXz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cyA-D1-SW5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7DT-fc-lmj">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="History" id="NIB-d7-1Fy">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="oVj-hx-Ns6">
+                                            <connections>
+                                                <action selector="cancelButtonPressed:" destination="5DI-tf-jgb" id="EkW-ys-mg7"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="ddZ-FK-n9R">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fdQ-N2-sBk">
+                                                <rect key="frame" x="277" y="412" width="46" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="46" id="HVQ-HV-HdY"/>
+                                                    <constraint firstAttribute="height" constant="30" id="iK4-Zh-tNz"/>
+                                                </constraints>
+                                                <state key="normal" title="Done"/>
+                                                <connections>
+                                                    <action selector="doneButtonPressed:" destination="5DI-tf-jgb" eventType="touchUpInside" id="Zyp-d1-niR"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fno-wh-dRZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1216" y="1164"/>
         </scene>
         <!--Update View Controller-->
         <scene sceneID="rFn-om-asI">
@@ -593,7 +639,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3n4-By-51l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1485" y="541"/>
+            <point key="canvasLocation" x="1468" y="407"/>
         </scene>
     </scenes>
 </document>
