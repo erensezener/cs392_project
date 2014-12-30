@@ -13,6 +13,7 @@ import UIKit
 
 class AddPredictionController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
     weak var predictions: Predictions!
+    var targetDay: NSDate?
     
     @IBOutlet weak var titleFormField: UITextField!
     @IBOutlet weak var confidenceFormField: UITextField!
@@ -24,12 +25,14 @@ class AddPredictionController: UIViewController, UIPickerViewDataSource, UIPicke
     
     @IBAction func doneButtonPressed(sender: AnyObject) {
         println("done button presssed")
-        predictions?.addPrediction(titleFormField.text, confidence: confidenceFormField.text)
+        predictions?.addPrediction(titleFormField.text, confidence: confidenceFormField.text, resolutionDate: self.targetDay!)
         dismissViewControllerAnimated(true, completion: nil)
     }
     
     let timeOptions = ["Today", "Tomorrow", "This week", "In two weeks", "In a month", "In three months", "In six months", "In a year",
     "In two years", "In three years"]
+    
+    let timeOptionsInDays = [0,1,7,14,31,31*3,31*6,365,365*2,365*3]
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
@@ -44,7 +47,15 @@ class AddPredictionController: UIViewController, UIPickerViewDataSource, UIPicke
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        NSLog("Selected component %d, row %d", component, row)
+        let today = NSDate()
+        let targetDay = NSCalendar.currentCalendar().dateByAddingUnit(
+            .CalendarUnitDay,
+            value: timeOptionsInDays[row],
+            toDate: today,
+            options: NSCalendarOptions(0))
+        
+        NSLog("Selected " + targetDay!.description)
+        self.targetDay = targetDay!
     }
 
     

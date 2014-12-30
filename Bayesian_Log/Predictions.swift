@@ -12,9 +12,10 @@ class Predictions{
     var predictions = [Prediction]()
     var completedPredictions = [Prediction]()
     
-    func addPrediction(title: String, confidence: String){
-        predictions.append(Prediction(title: title, confidence: confidence))
+    func addPrediction(title: String, confidence: String, resolutionDate: NSDate){
+        predictions.append(Prediction(title: title, confidence: confidence, resolutionDate: resolutionDate))
     }
+    
     
     func removePrediction(index: Int){
         predictions.removeAtIndex(index)

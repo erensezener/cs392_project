@@ -20,13 +20,14 @@ class Prediction{
     init(title: String, confidence: String){
         self.title = title
         self.confidence = confidence
+        self.addDate = NSDate()
     }
     
-    init(title: String, resolutionDate: NSDate, confidence: String){
+    init(title: String, confidence: String, resolutionDate: NSDate){
         self.title = title
         self.addDate = NSDate()
-        println(self.addDate)
         self.confidence = confidence
+        self.resolutionDate = resolutionDate
     }
     
     func judgePrediction(statementIsTrue : Bool){
