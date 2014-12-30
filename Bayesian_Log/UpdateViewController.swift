@@ -17,6 +17,7 @@ class UpdateViewController: UIViewController{
     @IBOutlet weak var P_H_given_E: UITextField!
     @IBOutlet weak var newConfidence: UITextField!
     @IBOutlet weak var confidenceLabel: UILabel! //with % character
+    @IBOutlet weak var judgementDayLabel: UILabel!
     
     
     func updateConfidenceLabel(){
@@ -89,6 +90,9 @@ class UpdateViewController: UIViewController{
     
     override func viewDidLoad() {
         updateConfidenceLabel()
+        let date_hour_string = self.prediction!.resolutionDate!.description
+        let date_string = date_hour_string.substringToIndex(advance(date_hour_string.startIndex,10)) //Get rid of hours etc
+        self.judgementDayLabel.text = date_string
         super.viewDidLoad()
     }
     
