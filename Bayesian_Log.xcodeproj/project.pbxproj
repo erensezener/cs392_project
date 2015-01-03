@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		911753EF1A53698700DF84E3 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911753EE1A53698700DF84E3 /* HistoryViewController.swift */; };
+		9123CB051A57D0BD005B5AF6 /* PredictionUpdatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9123CB041A57D0BD005B5AF6 /* PredictionUpdatesViewController.swift */; };
 		915B51591A48871E0088C4A6 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B51581A48871E0088C4A6 /* StatisticsViewController.swift */; };
 		915B515B1A48A1A90088C4A6 /* CompletedPrediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B515A1A48A1A90088C4A6 /* CompletedPrediction.swift */; };
 		915B515D1A48B6AD0088C4A6 /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B515C1A48B6AD0088C4A6 /* UpdateViewController.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		911753EE1A53698700DF84E3 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		9123CB041A57D0BD005B5AF6 /* PredictionUpdatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictionUpdatesViewController.swift; sourceTree = "<group>"; };
 		915B51581A48871E0088C4A6 /* StatisticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		915B515A1A48A1A90088C4A6 /* CompletedPrediction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedPrediction.swift; sourceTree = "<group>"; };
 		915B515C1A48B6AD0088C4A6 /* UpdateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				915B515C1A48B6AD0088C4A6 /* UpdateViewController.swift */,
 				915B515A1A48A1A90088C4A6 /* CompletedPrediction.swift */,
 				911753EE1A53698700DF84E3 /* HistoryViewController.swift */,
+				9123CB041A57D0BD005B5AF6 /* PredictionUpdatesViewController.swift */,
 				9198DC611A47E80100E1FCDC /* Predictions.swift */,
 				9198DC631A47E89A00E1FCDC /* Prediction.swift */,
 				9198DC431A47121100E1FCDC /* Main.storyboard */,
@@ -238,6 +241,7 @@
 			files = (
 				9198DC621A47E80100E1FCDC /* Predictions.swift in Sources */,
 				9198DC421A47121100E1FCDC /* ViewController.swift in Sources */,
+				9123CB051A57D0BD005B5AF6 /* PredictionUpdatesViewController.swift in Sources */,
 				915B515D1A48B6AD0088C4A6 /* UpdateViewController.swift in Sources */,
 				911753EF1A53698700DF84E3 /* HistoryViewController.swift in Sources */,
 				915B515B1A48A1A90088C4A6 /* CompletedPrediction.swift in Sources */,

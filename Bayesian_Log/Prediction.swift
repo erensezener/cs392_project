@@ -15,7 +15,7 @@ class Prediction{
     var confidence: String?
     var statementIsTrue: Bool?
     var isCompleted: Bool
-    var probabilityUpdates = [String]()
+    var probabilityUpdates = [(String, NSDate)]()
     
     init(title: String, confidence: String, resolutionDate: NSDate){
         self.title = title
@@ -23,6 +23,7 @@ class Prediction{
         self.confidence = confidence
         self.resolutionDate = resolutionDate
         self.isCompleted = false
+        self.probabilityUpdates.append((self.confidence!, self.addDate!))
     }
     
     func judgePrediction(statementIsTrue : Bool){
@@ -37,7 +38,8 @@ class Prediction{
     func doBayesianUpdate(P_HString: String, P_E_Given_HString: String, P_E_Given_HnotString: String){
         
         self.confidence = self.getPosterior(P_HString, P_E_Given_HString:P_E_Given_HString, P_E_Given_HnotString: P_E_Given_HnotString)
-        probabilityUpdates.append(confidence!)
+        probabilityUpdates.insert((self.confidence!, NSDate()), atIndex: 0)
+
 
     }
     
@@ -56,17 +58,28 @@ class Prediction{
     
     func doRegularUpdate(newConfidence :String){
         println(newConfidence)
-        probabilityUpdates.append(confidence!)
+//        probabilityUpdates.append()
+        probabilityUpdates.insert((newConfidence, NSDate()), atIndex: 0)
         self.confidence = newConfidence
     }
     
     func getConfidenceString() -> String{
-//        let confNSNumber = self.confidence! as NSNumber
-//        return confNSNumber.stringValue + "%"
         return confidence!
     }
-//    
-//    init(title: String, resolutionDate: NSDate, resolutionDate: NSDate, confidence: Int){
-//        
-//    }
+    
+    func getUpdateStringAt(index: Int) -> String{
+        return probabilityUpdates[index].0
+    }
+    
+    func getUpdateDateAt(index: Int) -> NSDate{
+        return probabilityUpdates[index].1
+    }
+    
+    func deleteUpdateAt(index: Int){
+        probabilityUpdates.removeAtIndex(index)
+    }
+    
+    func getNumberOfUpdates() -> Int{
+        return probabilityUpdates.count
+    }
 }

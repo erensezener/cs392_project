@@ -2,20 +2,22 @@
 //  HistoryViewController.swift
 //  Bayesian_Log
 //
-//  Created by Eren Sezener on 31/12/14.
+//  Created by Eren Sezener on 03/01/15.
 //  Copyright (c) 2014 Eren Sezener. All rights reserved.
 //
 
 import UIKit
 
-class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class PredictionUpdatesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    let predictions = TestPredictions()
-    //    let predictions = Predictions()
-    var indexToUpdate:Int?
+    var prediction: Prediction?
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func doneButtonPressed(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName("confidenceUpdate", object: nil)
+    }
     
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -23,30 +25,26 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return predictions.getNumberOfCompletedPredictions()
+        return prediction!.getNumberOfUpdates()
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("HistoryCell") as UITableViewCell
-        let prediction = predictions.getCompletedPredictionAtIndex(indexPath.item)
-        cell.textLabel?.text = prediction.title
-        cell.detailTextLabel?.text = prediction.getConfidenceString()
-        if prediction.statementIsTrue!{
-            cell.detailTextLabel?.textColor = UIColor.redColor()
-        } else {
-            cell.detailTextLabel?.textColor = UIColor.greenColor()
-        }
+//        let prediction = predictions.getCompletedPredictionAtIndex(indexPath.item)
+        cell.textLabel?.text = prediction!.getUpdateDateAt(indexPath.item).description //TODO
+        cell.detailTextLabel?.text = prediction!.getUpdateStringAt(indexPath.item)
+        //TODO fun coloring
         return cell
     }
     
     override func viewDidLoad() {
-        predictions.populatePredictions()
+//        predictions.populatePredictions()
         super.viewDidLoad()
         self.tableView.reloadData()
         
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+//        self.navigationItem.leftBarButtonItem = self.editButtonItem()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:",name:"confidenceUpdate", object: nil)
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:",name:"confidenceUpdate", object: nil)
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -62,40 +60,38 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        print(segue.identifier)
-//        
-//        if let identifier = segue.identifier{
-//            if identifier == "addPrediction" {
-//                let destinationVC = segue.destinationViewController as AddPredictionController
-//                destinationVC.predictions = self.predictions
-//            }
-//            else if identifier == "showStatistics" {
-//                //                let destinationVC = segue.destinationViewController as StatisticsViewController
-//            }
-//            else if identifier == "updateSegue" {
-//                let destinationVC = segue.destinationViewController as UpdateViewController
-//                println(self.indexToUpdate!)
-//                destinationVC.prediction = predictions.getCompletedPredictionAtIndex(self.indexToUpdate!)
-//            }
-//        }
-//    }
+    //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    //        print(segue.identifier)
+    //
+    //        if let identifier = segue.identifier{
+    //            if identifier == "addPrediction" {
+    //                let destinationVC = segue.destinationViewController as AddPredictionController
+    //                destinationVC.predictions = self.predictions
+    //            }
+    //            else if identifier == "showStatistics" {
+    //                //                let destinationVC = segue.destinationViewController as StatisticsViewController
+    //            }
+    //            else if identifier == "updateSegue" {
+    //                let destinationVC = segue.destinationViewController as UpdateViewController
+    //                println(self.indexToUpdate!)
+    //                destinationVC.prediction = predictions.getCompletedPredictionAtIndex(self.indexToUpdate!)
+    //            }
+    //        }
+    //    }
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
         
         var seeUpdatesRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Updates", handler:{action, indexpath in
             println("See Updates•ACTION");
-            self.indexToUpdate = indexPath.item
-            self.performSegueWithIdentifier("updateDetailsSegue", sender: self)
             
             //TODO implement segue
-
+            
         });
         seeUpdatesRowAction.backgroundColor = UIColor(red: 0.598, green: 0.251, blue: 0.3922, alpha: 1.0);
         
         var deleteRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete", handler:{action, indexpath in
             println("DELETE•ACTION");
-            self.predictions.removeCompletedPrediction(indexPath.item)
+            self.prediction!.deleteUpdateAt(indexPath.item)
             self.tableView.reloadData()
         });
         
@@ -112,15 +108,10 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         println(editingStyle)
         if editingStyle == .Delete {
-            predictions.predictions.removeAtIndex(indexPath.row)
+            prediction?.deleteUpdateAt(indexPath.item)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destinationVC = segue.destinationViewController as PredictionUpdatesViewController
-        destinationVC.prediction = predictions.getCompletedPredictionAtIndex(indexToUpdate!)
     }
 }
