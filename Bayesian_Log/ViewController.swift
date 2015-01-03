@@ -58,6 +58,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        print(segue.identifier)
         
         if let identifier = segue.identifier{
             if identifier == "addPrediction" {
@@ -87,8 +88,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             var yesAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default) {
                 UIAlertAction in
                 
-                //TODO
-                self.predictions.predictions.removeAtIndex(indexPath.item)
+                
+                self.predictions.completePrediction(indexPath.item, truthValue: true)
                 self.tableView.reloadData()
                 
             }
@@ -96,7 +97,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 UIAlertAction in
                 
                 //TODO
-                self.predictions.predictions.removeAtIndex(indexPath.item)
+                self.predictions.completePrediction(indexPath.item, truthValue: false)
                 self.tableView.reloadData()
             }
             

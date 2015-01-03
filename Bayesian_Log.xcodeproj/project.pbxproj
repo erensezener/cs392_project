@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		911753EF1A53698700DF84E3 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911753EE1A53698700DF84E3 /* HistoryViewController.swift */; };
 		915B51591A48871E0088C4A6 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B51581A48871E0088C4A6 /* StatisticsViewController.swift */; };
 		915B515B1A48A1A90088C4A6 /* CompletedPrediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B515A1A48A1A90088C4A6 /* CompletedPrediction.swift */; };
 		915B515D1A48B6AD0088C4A6 /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915B515C1A48B6AD0088C4A6 /* UpdateViewController.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		911753EE1A53698700DF84E3 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		915B51581A48871E0088C4A6 /* StatisticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		915B515A1A48A1A90088C4A6 /* CompletedPrediction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedPrediction.swift; sourceTree = "<group>"; };
 		915B515C1A48B6AD0088C4A6 /* UpdateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				915B51581A48871E0088C4A6 /* StatisticsViewController.swift */,
 				915B515C1A48B6AD0088C4A6 /* UpdateViewController.swift */,
 				915B515A1A48A1A90088C4A6 /* CompletedPrediction.swift */,
+				911753EE1A53698700DF84E3 /* HistoryViewController.swift */,
 				9198DC611A47E80100E1FCDC /* Predictions.swift */,
 				9198DC631A47E89A00E1FCDC /* Prediction.swift */,
 				9198DC431A47121100E1FCDC /* Main.storyboard */,
@@ -236,6 +239,7 @@
 				9198DC621A47E80100E1FCDC /* Predictions.swift in Sources */,
 				9198DC421A47121100E1FCDC /* ViewController.swift in Sources */,
 				915B515D1A48B6AD0088C4A6 /* UpdateViewController.swift in Sources */,
+				911753EF1A53698700DF84E3 /* HistoryViewController.swift in Sources */,
 				915B515B1A48A1A90088C4A6 /* CompletedPrediction.swift in Sources */,
 				9198DC601A47E7CB00E1FCDC /* TestPredictions.swift in Sources */,
 				9198DC641A47E89A00E1FCDC /* Prediction.swift in Sources */,

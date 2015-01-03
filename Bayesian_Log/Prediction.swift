@@ -13,25 +13,20 @@ class Prediction{
     var addDate : NSDate?
     var resolutionDate: NSDate?
     var confidence: String?
-    var isCompleted: Bool?
     var statementIsTrue: Bool?
+    var isCompleted: Bool
     var probabilityUpdates = [String]()
-    
-    init(title: String, confidence: String){
-        self.title = title
-        self.confidence = confidence
-        self.addDate = NSDate()
-    }
     
     init(title: String, confidence: String, resolutionDate: NSDate){
         self.title = title
         self.addDate = NSDate()
         self.confidence = confidence
         self.resolutionDate = resolutionDate
+        self.isCompleted = false
     }
     
     func judgePrediction(statementIsTrue : Bool){
-        self.isCompleted! = true
+        self.isCompleted = true
         self.statementIsTrue = statementIsTrue
     }
     
