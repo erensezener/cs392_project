@@ -10,8 +10,7 @@ import UIKit
 
 class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    let predictions = TestPredictions()
-    //    let predictions = Predictions()
+    weak var predictions: Predictions?
     var indexToUpdate:Int?
     
     @IBOutlet weak var tableView: UITableView!
@@ -23,24 +22,23 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return predictions.getNumberOfCompletedPredictions()
+        return predictions!.getNumberOfCompletedPredictions()
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("HistoryCell") as UITableViewCell
-        let prediction = predictions.getCompletedPredictionAtIndex(indexPath.item)
+        let prediction = predictions!.getCompletedPredictionAtIndex(indexPath.item)
         cell.textLabel?.text = prediction.title
         cell.detailTextLabel?.text = prediction.getConfidenceString()
         if prediction.statementIsTrue!{
-            cell.detailTextLabel?.textColor = UIColor.redColor()
-        } else {
             cell.detailTextLabel?.textColor = UIColor.greenColor()
+        } else {
+            cell.detailTextLabel?.textColor = UIColor.redColor()
         }
         return cell
     }
     
     override func viewDidLoad() {
-        predictions.populatePredictions()
         super.viewDidLoad()
         self.tableView.reloadData()
         
@@ -95,7 +93,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         var deleteRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete", handler:{action, indexpath in
             println("DELETE•ACTION");
-            self.predictions.removeCompletedPrediction(indexPath.item)
+            self.predictions!.removeCompletedPrediction(indexPath.item)
             self.tableView.reloadData()
         });
         
@@ -112,7 +110,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         println(editingStyle)
         if editingStyle == .Delete {
-            predictions.predictions.removeAtIndex(indexPath.row)
+            predictions!.predictions.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -121,6 +119,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destinationVC = segue.destinationViewController as PredictionUpdatesViewController
-        destinationVC.prediction = predictions.getCompletedPredictionAtIndex(indexToUpdate!)
+        destinationVC.prediction = predictions!.getCompletedPredictionAtIndex(indexToUpdate!)
     }
 }

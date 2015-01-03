@@ -42,6 +42,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:",name:"load", object: nil)
+        
+        var historyViewController = self.tabBarController?.viewControllers![1] as HistoryViewController
+        historyViewController.predictions = self.predictions
 
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -58,7 +61,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        print(segue.identifier)
+        print("segue time!")
         
         if let identifier = segue.identifier{
             if identifier == "addPrediction" {

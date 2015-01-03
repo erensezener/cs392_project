@@ -27,7 +27,7 @@ class Predictions{
     func completePrediction(index: Int, truthValue: Bool){
         let p = predictions.removeAtIndex(index)
         p.judgePrediction(truthValue)
-        completedPredictions.append(p)
+        completedPredictions.insert(p, atIndex: 0)
     }
     
     func getNumberOfPredictions() -> Int{
