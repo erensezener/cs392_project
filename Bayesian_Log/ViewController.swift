@@ -125,7 +125,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         var deleteRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete", handler:{action, indexpath in
             println("DELETE•ACTION");
-            self.predictions.predictions.removeAtIndex(indexPath.item)
+            self.predictions.removePrediction(indexPath.item)
             self.tableView.reloadData()
         });
         

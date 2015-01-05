@@ -30,7 +30,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         let prediction = predictions!.getCompletedPredictionAtIndex(indexPath.item)
         cell.textLabel?.text = prediction.title
         cell.detailTextLabel?.text = prediction.getConfidenceString()
-        if prediction.statementIsTrue!{
+        if prediction.statementIsTrue{
             cell.detailTextLabel?.textColor = UIColor.greenColor()
         } else {
             cell.detailTextLabel?.textColor = UIColor.redColor()

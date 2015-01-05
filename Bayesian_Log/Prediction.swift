@@ -9,11 +9,11 @@
 import Foundation
 
 class Prediction{
-    var title: String?
-    var addDate : NSDate?
-    var resolutionDate: NSDate?
-    var confidence: String?
-    var statementIsTrue: Bool?
+    var title: String
+    var addDate : NSDate
+    var resolutionDate: NSDate
+    var confidence: String
+    var statementIsTrue: Bool
     var isCompleted: Bool
     var probabilityUpdates = [(String, NSDate)]()
     
@@ -23,7 +23,30 @@ class Prediction{
         self.confidence = confidence
         self.resolutionDate = resolutionDate
         self.isCompleted = false
-        self.probabilityUpdates.append((self.confidence!, self.addDate!))
+        self.statementIsTrue = false
+        self.probabilityUpdates.append((self.confidence, self.addDate))
+    }
+    
+    init(title: String, confidence: String, resolutionDate: NSDate, addDate: NSDate, statementIsTrue: Bool, isCompleted: Bool, probabilityUpdates: [(String, NSDate)]){
+        self.title = title
+        self.addDate = addDate
+        self.confidence = confidence
+        self.resolutionDate = resolutionDate
+        self.isCompleted = isCompleted
+        self.statementIsTrue = statementIsTrue
+        self.probabilityUpdates = probabilityUpdates
+    }
+    
+    func dumpAttributes() -> (String, NSDate, String, NSDate, Bool, Bool, [String], [NSDate]){
+        var probabilityUpdates0 = [String]()
+        var probabilityUpdates1 = [NSDate]()
+        
+        for p in probabilityUpdates{
+            probabilityUpdates0.append(p.0)
+            probabilityUpdates1.append(p.1)
+        }
+        
+        return (title, addDate, confidence, resolutionDate, isCompleted, statementIsTrue, probabilityUpdates0, probabilityUpdates1)
     }
     
     func judgePrediction(statementIsTrue : Bool){
@@ -32,15 +55,13 @@ class Prediction{
     }
     
     func getTruthValue() -> Bool{
-        return self.statementIsTrue!
+        return self.statementIsTrue
     }
     
     func doBayesianUpdate(P_HString: String, P_E_Given_HString: String, P_E_Given_HnotString: String){
         
         self.confidence = self.getPosterior(P_HString, P_E_Given_HString:P_E_Given_HString, P_E_Given_HnotString: P_E_Given_HnotString)
-        probabilityUpdates.insert((self.confidence!, NSDate()), atIndex: 0)
-
-
+        probabilityUpdates.insert((self.confidence, NSDate()), atIndex: 0)
     }
     
     func getPosterior(P_HString: String, P_E_Given_HString: String, P_E_Given_HnotString: String) -> String{
@@ -64,7 +85,7 @@ class Prediction{
     }
     
     func getConfidenceString() -> String{
-        return confidence!
+        return confidence
     }
     
     func getUpdateStringAt(index: Int) -> String{

@@ -90,7 +90,7 @@ class UpdateViewController: UIViewController{
     
     override func viewDidLoad() {
         updateConfidenceLabel()
-        let date_hour_string = self.prediction!.resolutionDate!.description
+        let date_hour_string = self.prediction!.resolutionDate.description
         let date_string = date_hour_string.substringToIndex(advance(date_hour_string.startIndex,10)) //Get rid of hours etc
         self.judgementDayLabel.text = date_string
         super.viewDidLoad()
