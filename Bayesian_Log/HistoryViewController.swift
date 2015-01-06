@@ -28,6 +28,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("HistoryCell") as UITableViewCell
         let prediction = predictions!.getCompletedPredictionAtIndex(indexPath.item)
+        println("History view showing " + prediction.title)
         cell.textLabel?.text = prediction.title
         cell.detailTextLabel?.text = prediction.getConfidenceString()
         if prediction.statementIsTrue{
@@ -39,6 +40,8 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     override func viewDidLoad() {
+        println("viewDidLoad is called")
+        predictions!.load()
         super.viewDidLoad()
         self.tableView.reloadData()
         
@@ -51,6 +54,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func loadList(notification: NSNotification){
         //load data here
+        predictions!.load()
         self.tableView.reloadData()
     }
     
@@ -115,6 +119,12 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        predictions!.load()
+        super.viewDidLoad()
+        self.tableView.reloadData()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

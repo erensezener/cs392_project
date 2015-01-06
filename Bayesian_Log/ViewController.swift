@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Eren Sezener. All rights reserved.
 //
 
-//TODO hold statistics
-//TODO handle long titles
 
 import UIKit
 
@@ -95,6 +93,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 
                 self.predictions.completePrediction(indexPath.item, truthValue: true)
                 self.tableView.reloadData()
+                self.predictions.save()
                 
             }
             var noAction = UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel) {
@@ -103,6 +102,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 //TODO
                 self.predictions.completePrediction(indexPath.item, truthValue: false)
                 self.tableView.reloadData()
+                self.predictions.save()
             }
             
             // Add the actions

@@ -19,13 +19,19 @@ class TestPredictions : Predictions{
     
     func populatePredictions(){
         if loadHardCodedData{
-            self.addPrediction("I will be admitted to USC", confidence: "50", resolutionDate: tomorrow!)
+            self.addPrediction("I will be admitted to USC", confidence: "30", resolutionDate: tomorrow!)
             self.addPrediction("TRY/USD will reach 2.40", confidence: "70", resolutionDate: tomorrow!)
-            self.addPrediction("This will be published in App Store", confidence: "40", resolutionDate: tomorrow!)
+            self.addPrediction("iPhone7 will be the same size with the 6", confidence: "75", resolutionDate: tomorrow!)
+            self.addPrediction("This will be published in App Store", confidence: "10", resolutionDate: tomorrow!)
             self.addPrediction("I will be able to finish this project", confidence: "80", resolutionDate: tomorrow!)
-            self.getPredictionAtIndex(2).doRegularUpdate("60")
-            self.completePrediction(2, truthValue: true)
-            self.completePrediction(2, truthValue: false)
+            
+            self.addPrediction("Ozyegin will be cancelled today", confidence: "90", resolutionDate: tomorrow!)
+            self.addPrediction("It will snow this morning", confidence: "90", resolutionDate: tomorrow!)
+            self.addPrediction("My Mac's problem is due to its graphic card", confidence: "60", resolutionDate: tomorrow!)
+            self.getPredictionAtIndex(6).doRegularUpdate("60")
+            self.completePrediction(5, truthValue: false)
+            self.completePrediction(5, truthValue: true)
+            self.completePrediction(5, truthValue: false)
         } else {
             load()
         }

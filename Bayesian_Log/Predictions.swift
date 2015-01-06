@@ -16,6 +16,9 @@ class Predictions{
     let userDefaultKey = "predictions"
     
     func load(){
+        predictions.removeAll(keepCapacity: false)
+        completedPredictions.removeAll(keepCapacity: false)
+        
         if let dict: AnyObject = userDefaults.objectForKey(userDefaultKey){
             let dictX: [String:AnyObject] = userDefaults.objectForKey(userDefaultKey) as [String:AnyObject]
             let predictionsX = dictX["predictions"] as [AnyObject]
@@ -72,6 +75,7 @@ class Predictions{
             }
         }
         
+        println("loaded data")
         
     }
     
