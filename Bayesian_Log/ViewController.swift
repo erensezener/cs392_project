@@ -75,6 +75,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let destinationVC = segue.destinationViewController as UpdateViewController
                 println(self.indexToUpdate!)
                 destinationVC.prediction = predictions.getPredictionAtIndex(self.indexToUpdate!)
+                destinationVC.predictions = predictions
             }
         }
     }

@@ -77,8 +77,6 @@ class Predictions{
     
     func save(){
         
-//        var dict = ["predictions": ]
-        
         var predictionsToSave = [[String: AnyObject]]()
         var completedPredictionsToSave = [[String: AnyObject]]()
         
@@ -120,20 +118,7 @@ class Predictions{
         dictionary["completedPredictions"] = completedPredictionsToSave
         userDefaults.setObject(dictionary, forKey: userDefaultKey)
         
-        
-//        var deparments:[[String:AnyObject]] = []
-//        
-//        for department in university.departments{
-//            var members:[[String:String]] = []
-//            for member in department.facultyMembers{
-//                var memberDictionary = ["name":member.name, "lastName":member.lastName, "userName":member.userName]
-//                members.append(memberDictionary)
-//            }
-//            deparments.append(["fullName":department.fullName, "shortName":department.shortName, "members":members])
-//        }
-//        
-//        var dictionary = ["departments":deparments]
-//        userDefaults.setObject(dictionary, forKey: userDefaultKey)
+        userDefaults.synchronize()
         println("saved data")
         
     }
@@ -159,7 +144,7 @@ class Predictions{
         p.judgePrediction(truthValue)
         completedPredictions.insert(p, atIndex: 0)
         save()
-        userDefaults.synchronize()
+        
     }
     
     func getNumberOfPredictions() -> Int{

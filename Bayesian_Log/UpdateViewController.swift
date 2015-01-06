@@ -10,6 +10,7 @@ import UIKit
 
 class UpdateViewController: UIViewController{
     weak var prediction: Prediction?
+    weak var predictions: Predictions?
     
     @IBOutlet weak var P_H: UITextField!
     @IBOutlet weak var P_E_given_H: UITextField!
@@ -77,12 +78,13 @@ class UpdateViewController: UIViewController{
         //TODO Do something
         dismissViewControllerAnimated(true, completion: nil)
         NSNotificationCenter.defaultCenter().postNotificationName("load", object: nil)
-        
+        predictions!.save()
     }
     
     @IBAction func cancelButtonPressed(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
         NSNotificationCenter.defaultCenter().postNotificationName("load", object: nil)
+        predictions!.save()
     }
     
 
