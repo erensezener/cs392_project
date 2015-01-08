@@ -9,7 +9,7 @@
 import Foundation
 
 class TestPredictions : Predictions{
-    var loadHardCodedData = false
+    var loadHardCodedData = true
     
     let tomorrow = NSCalendar.currentCalendar().dateByAddingUnit(
         .CalendarUnitDay,

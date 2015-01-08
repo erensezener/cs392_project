@@ -13,7 +13,7 @@ import UIKit
 
 class AddPredictionController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
     weak var predictions: Predictions!
-    var targetDay: NSDate?
+    var targetDay = NSDate()
     
     @IBOutlet weak var titleFormField: UITextField!
     @IBOutlet weak var confidenceFormField: UITextField!
@@ -25,7 +25,8 @@ class AddPredictionController: UIViewController, UIPickerViewDataSource, UIPicke
     
     @IBAction func doneButtonPressed(sender: AnyObject) {
         println("done button presssed")
-        predictions?.addPrediction(titleFormField.text, confidence: confidenceFormField.text, resolutionDate: self.targetDay!)
+        println("confidence " + confidenceFormField.text)
+        predictions?.addPrediction(titleFormField.text, confidence: confidenceFormField.text, resolutionDate: self.targetDay)
         dismissViewControllerAnimated(true, completion: nil)
     }
     

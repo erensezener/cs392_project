@@ -233,7 +233,7 @@
                             <constraint firstItem="QKZ-pd-Ioj" firstAttribute="leading" secondItem="Zrg-gH-63m" secondAttribute="leadingMargin" constant="-16" id="uxW-Eq-Eux"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Predictions" id="cg2-By-dfU"/>
+                    <tabBarItem key="tabBarItem" title="Predictions" image="predictions" id="cg2-By-dfU"/>
                     <connections>
                         <outlet property="tableView" destination="QKZ-pd-Ioj" id="GQf-CC-KuM"/>
                     </connections>
@@ -345,7 +345,7 @@
                             <constraint firstItem="gAm-Ko-gB6" firstAttribute="leading" secondItem="cyA-D1-SW5" secondAttribute="leadingMargin" constant="-16" id="v8x-hK-hhS"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="History" id="Wyf-sm-Esi"/>
+                    <tabBarItem key="tabBarItem" title="History" image="history" id="Wyf-sm-Esi"/>
                     <connections>
                         <outlet property="tableView" destination="gAm-Ko-gB6" id="Gvt-rG-tf8"/>
                     </connections>
@@ -895,4 +895,8 @@
             <point key="canvasLocation" x="-214" y="1982"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="history" width="24" height="22"/>
+        <image name="predictions" width="26" height="17"/>
+    </resources>
 </document>
