@@ -146,7 +146,7 @@ class Predictions{
         let p = self.getPredictionAtIndex(index)
         self.removePrediction(index)
         p.judgePrediction(truthValue)
-        completedPredictions.insert(p, atIndex: 0)
+        completedPredictions.append(p)
         save()
         
     }
