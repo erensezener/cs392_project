@@ -30,21 +30,14 @@ class PredictionUpdatesViewController: UIViewController, UITableViewDelegate, UI
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("HistoryCell") as UITableViewCell
-//        let prediction = predictions.getCompletedPredictionAtIndex(indexPath.item)
         cell.textLabel?.text = prediction!.getUpdateDateAt(indexPath.item).description //TODO
         cell.detailTextLabel?.text = prediction!.getUpdateStringAt(indexPath.item)
-        //TODO fun coloring
         return cell
     }
     
     override func viewDidLoad() {
-//        predictions.populatePredictions()
         super.viewDidLoad()
         self.tableView.reloadData()
-        
-//        self.navigationItem.leftBarButtonItem = self.editButtonItem()
-        
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:",name:"confidenceUpdate", object: nil)
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -59,25 +52,6 @@ class PredictionUpdatesViewController: UIViewController, UITableViewDelegate, UI
         // Dispose of any resources that can be recreated.
     }
     
-    
-    //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    //        print(segue.identifier)
-    //
-    //        if let identifier = segue.identifier{
-    //            if identifier == "addPrediction" {
-    //                let destinationVC = segue.destinationViewController as AddPredictionController
-    //                destinationVC.predictions = self.predictions
-    //            }
-    //            else if identifier == "showStatistics" {
-    //                //                let destinationVC = segue.destinationViewController as StatisticsViewController
-    //            }
-    //            else if identifier == "updateSegue" {
-    //                let destinationVC = segue.destinationViewController as UpdateViewController
-    //                println(self.indexToUpdate!)
-    //                destinationVC.prediction = predictions.getCompletedPredictionAtIndex(self.indexToUpdate!)
-    //            }
-    //        }
-    //    }
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
         
@@ -104,7 +78,6 @@ class PredictionUpdatesViewController: UIViewController, UITableViewDelegate, UI
     }
     
     
-    //TODO this is probably redundant
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         println(editingStyle)
         if editingStyle == .Delete {

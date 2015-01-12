@@ -12,7 +12,6 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     let predictions = TestPredictions()
-//    let predictions = Predictions()
     var indexToUpdate:Int?
     
     @IBOutlet weak var tableView: UITableView!
@@ -66,9 +65,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let destinationVC = segue.destinationViewController as AddPredictionController
                 destinationVC.predictions = self.predictions
             }
-            else if identifier == "showStatistics" {
-//                let destinationVC = segue.destinationViewController as StatisticsViewController
-            }
+
             else if identifier == "updateSegue" {
                 let destinationVC = segue.destinationViewController as UpdateViewController
                 println(self.indexToUpdate!)

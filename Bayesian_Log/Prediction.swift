@@ -61,7 +61,8 @@ class Prediction{
     func doBayesianUpdate(P_HString: String, P_E_Given_HString: String, P_E_Given_HnotString: String){
         
         self.confidence = self.getPosterior(P_HString, P_E_Given_HString:P_E_Given_HString, P_E_Given_HnotString: P_E_Given_HnotString)
-        probabilityUpdates.insert((self.confidence, NSDate()), atIndex: 0)
+        probabilityUpdates.append((self.confidence, NSDate()))
+
     }
     
     func getPosterior(P_HString: String, P_E_Given_HString: String, P_E_Given_HnotString: String) -> String{
@@ -79,8 +80,7 @@ class Prediction{
     
     func doRegularUpdate(newConfidence :String){
         println(newConfidence)
-//        probabilityUpdates.append()
-        probabilityUpdates.insert((newConfidence, NSDate()), atIndex: 0)
+        probabilityUpdates.append((newConfidence, NSDate()))
         self.confidence = newConfidence
     }
     

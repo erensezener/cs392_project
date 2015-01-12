@@ -40,7 +40,6 @@ class Predictions{
                 for i in 0...probabilityUpdates0.count - 1 {
                     let tuple = (probabilityUpdates0[i] as String, probabilityUpdates1[i] as NSDate)
                     probabilityUpdates.insert(tuple, atIndex: 0)
-//                    probabilityUpdates.append(tuple)
                 }
                 
                 let currentPrediction = Prediction(title: title, confidence: confidence, resolutionDate: resolutionDate, addDate: addDate, statementIsTrue: statementIsTrue, isCompleted: isCompleted, probabilityUpdates: probabilityUpdates)
@@ -65,7 +64,6 @@ class Predictions{
                 for i in 0...probabilityUpdates0.count - 1 {
                     let tuple = (probabilityUpdates0[i] as String, probabilityUpdates1[i] as NSDate)
                     probabilityUpdates.insert(tuple, atIndex: 0)
-//                    probabilityUpdates.append(tuple)
                 }
                 
                 let currentPrediction = Prediction(title: title, confidence: confidence, resolutionDate: resolutionDate, addDate: addDate, statementIsTrue: statementIsTrue, isCompleted: isCompleted, probabilityUpdates: probabilityUpdates)
@@ -95,7 +93,6 @@ class Predictions{
             predictionDict["statementIsTrue"] = attributeDump.5
             predictionDict["probabilityUpdates0"] = attributeDump.6
             predictionDict["probabilityUpdates1"] = attributeDump.7
-//            predictionsToSave.append(predictionDict)
             predictionsToSave.insert(predictionDict, atIndex: 0)
             println("Saving P " + (predictionDict["title"] as String) )
 
@@ -112,7 +109,6 @@ class Predictions{
             predictionDict["statementIsTrue"] = attributeDump.5
             predictionDict["probabilityUpdates0"] = attributeDump.6
             predictionDict["probabilityUpdates1"] = attributeDump.7
-//            completedPredictionsToSave.append(predictionDict)
             completedPredictionsToSave.insert(predictionDict, atIndex: 0)
             println("Saving CP " + (predictionDict["title"] as String) )
             
@@ -146,7 +142,7 @@ class Predictions{
         let p = self.getPredictionAtIndex(index)
         self.removePrediction(index)
         p.judgePrediction(truthValue)
-        completedPredictions.append(p)
+        completedPredictions.insert(p, atIndex: 0)
         save()
         
     }

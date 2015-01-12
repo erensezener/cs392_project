@@ -64,25 +64,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        print(segue.identifier)
-//        
-//        if let identifier = segue.identifier{
-//            if identifier == "addPrediction" {
-//                let destinationVC = segue.destinationViewController as AddPredictionController
-//                destinationVC.predictions = self.predictions
-//            }
-//            else if identifier == "showStatistics" {
-//                //                let destinationVC = segue.destinationViewController as StatisticsViewController
-//            }
-//            else if identifier == "updateSegue" {
-//                let destinationVC = segue.destinationViewController as UpdateViewController
-//                println(self.indexToUpdate!)
-//                destinationVC.prediction = predictions.getCompletedPredictionAtIndex(self.indexToUpdate!)
-//            }
-//        }
-//    }
-    
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
         
         var seeUpdatesRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Updates", handler:{action, indexpath in

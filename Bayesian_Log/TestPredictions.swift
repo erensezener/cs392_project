@@ -27,8 +27,8 @@ class TestPredictions : Predictions{
             
             self.addPrediction("Ozyegin will be cancelled today", confidence: "70", resolutionDate: tomorrow!)
             self.addPrediction("It will snow this morning", confidence: "80", resolutionDate: tomorrow!)
-            self.addPrediction("My Mac's problem is due to its graphic card", confidence: "40", resolutionDate: tomorrow!)
             self.getPredictionAtIndex(6).doRegularUpdate("60")
+            self.addPrediction("My Mac's problem is due to its graphic card", confidence: "40", resolutionDate: tomorrow!)
             self.getPredictionAtIndex(6).doRegularUpdate("50")
             self.completePrediction(5, truthValue: false)
             self.completePrediction(5, truthValue: true)
