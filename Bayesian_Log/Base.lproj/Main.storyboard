@@ -41,9 +41,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="uXQ-AQ-0qE" kind="show" identifier="updateSegue" id="l49-0X-NkP"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -58,7 +55,7 @@
                                     <navigationItem title="Predictions" id="IUi-iu-HcS">
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Qpy-6i-vZP">
                                             <connections>
-                                                <segue destination="5DI-tf-jgb" kind="show" identifier="addPrediction" id="z38-Wj-byd"/>
+                                                <segue destination="5DI-tf-jgb" kind="show" identifier="addPrediction" id="npo-Ec-DYt"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -79,11 +76,12 @@
                     <tabBarItem key="tabBarItem" title="Predictions" image="predictions" id="cg2-By-dfU"/>
                     <connections>
                         <outlet property="tableView" destination="QKZ-pd-Ioj" id="GQf-CC-KuM"/>
+                        <segue destination="uXQ-AQ-0qE" kind="showDetail" identifier="updateSegue" id="SmM-4e-78f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YqD-R1-V68" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-994" y="572"/>
+            <point key="canvasLocation" x="-1006" y="606"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Nfn-uf-6TU">
@@ -147,9 +145,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="cTL-7r-Mw0" kind="show" identifier="updateDetailsSegue" id="3YZ-Tf-3OG"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -172,6 +167,7 @@
                     <tabBarItem key="tabBarItem" title="History" image="history" id="Wyf-sm-Esi"/>
                     <connections>
                         <outlet property="tableView" destination="gAm-Ko-gB6" id="Gvt-rG-tf8"/>
+                        <segue destination="cTL-7r-Mw0" kind="show" identifier="updateDetailsSegue" id="lgO-qT-PWq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fno-wh-dRZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

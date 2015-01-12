@@ -102,6 +102,12 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.indexToUpdate = indexPath.item
+        self.performSegueWithIdentifier("updateDetailsSegue", sender: self)
+        
+    }
+    
     override func viewWillAppear(animated: Bool) {
         predictions!.load()
         super.viewDidLoad()

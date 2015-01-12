@@ -75,6 +75,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.indexToUpdate = indexPath.item
+        self.performSegueWithIdentifier("updateSegue", sender: self)
+        
+    }
+    
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
         
         var judgeRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Judge", handler:{action, indexpath in
